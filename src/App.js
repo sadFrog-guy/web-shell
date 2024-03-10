@@ -15,15 +15,17 @@ const AppWrapper = styled.div`
 `;
 
 const App = observer(() => {
-  const theme = useTheme();
+  // const theme = useTheme();
 
-  useEffect(() => {
-    if (theme === "dark") {
-      colorStore.setDarkTheme();
-    } else {
-      colorStore.setLightTheme();
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (theme === "dark") {
+  //     colorStore.setDarkTheme();
+  //   } else {
+  //     colorStore.setLightTheme();
+  //   }
+  // }, []);
+
+  colorStore.setLightTheme();
 
   return (
     <AppWrapper>
