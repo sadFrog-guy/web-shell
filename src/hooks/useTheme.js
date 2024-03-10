@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const useTheme = () => {
-  const [theme, setTheme] = useState(getInitialTheme());
+  const [theme, setTheme] = useState(getInitialTheme("dark"));
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
