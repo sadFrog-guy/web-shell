@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import { observer } from "mobx-react";
+import { useEffect } from "react";
+import styled from "styled-components";
+import Button from "./components/Button";
+import Console from "./components/Console";
+import Flex from "./components/Flex";
+import Heading from "./components/Heading";
+import useTheme from "./hooks/useTheme";
+import colorStore from "./store/ColorStore";
+import logStore from "./store/LogStore";
 
-function App() {
+const AppWrapper = styled.div`
+  width: 100%;
+  padding: 2rem;
+`;
+
+const App = observer(() => {
+  const theme = useTheme();
+
+  useEffect(() => {
+    if (theme === "dark") {
+      colorStore.setDarkTheme();
+    } else {
+      colorStore.setLightTheme();
+    }
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <AppWrapper>
+      <Flex justify="center">
+        <Heading />
+      </Flex>
+
+      <Flex direction="column" margin="40px 0">
+        <Console margin="0 0 20px 0" />
+
+        <Button
+          outlined
+          position="fixed"
+          bottom="30px"
+          left="20px"
+          onClick={() => logStore.clearLog()}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Очистить
+        </Button>
+      </Flex>
+    </AppWrapper>
   );
-}
+});
 
 export default App;
