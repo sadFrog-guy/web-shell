@@ -86,7 +86,7 @@ const Console = observer(({ color, ...props }) => {
     <Flex width="100%" direction="column" margin="0 10px">
       <LogContainer>
         {logStore.log.map((logEntry, index) => (
-          <Line key={index} color={color} margin="0 0 20px 0">
+          <Line key={index} margin="0 0 20px 0">
             {logEntry}
           </Line>
         ))}
