@@ -13,8 +13,8 @@ const StyledLine = styled.div`
   }
 `;
 
-function Line({ ref, ...props }) {
-  return <StyledLine ref={ref} {...props} store={colorStore} />;
+function Line({ ...props }) {
+  return <StyledLine {...props} store={colorStore} />;
 }
 
 export default Line;
