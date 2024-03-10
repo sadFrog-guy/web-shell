@@ -1,11 +1,9 @@
 import { observer } from "mobx-react";
-import { useEffect } from "react";
 import styled from "styled-components";
 import Button from "./components/Button";
 import Console from "./components/Console";
 import Flex from "./components/Flex";
 import Heading from "./components/Heading";
-import useTheme from "./hooks/useTheme";
 import colorStore from "./store/ColorStore";
 import logStore from "./store/LogStore";
 
